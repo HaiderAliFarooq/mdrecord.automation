@@ -29,6 +29,6 @@ test.describe('Signup', () => {
     await page.getByRole('button', { name: /sign up|register|create account|submit|Try For Free/i }).click();
 
     // Expect successful signup (update selector as needed)
-    await expect(page).toHaveURL(/dashboard|home|welcome|verify|success/);
+    await expect(page).toHaveURL(/dashboard|home|welcome|verify/);
   });
 });
