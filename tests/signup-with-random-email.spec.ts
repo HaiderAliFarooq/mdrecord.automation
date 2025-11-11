@@ -8,14 +8,12 @@ function generateRandomEmail() {
 test.describe('Signup', () => {
   test('signup with random email', async ({ page }) => {
     await page.goto('https://mdrecord.ai/');
-
     // Click the 'Try For Free' button to open the signup form
     await page.getByText('Try For Free').click();
     // Wait for the signup form to appear
     await page.waitForSelector('input[name="name"], input[placeholder="Name"], label:has-text("Name")');
     await page.waitForSelector('input[name="email"], input[placeholder="Email"], label:has-text("Email")');
     await page.waitForSelector('input[name="password"], input[placeholder="Password"], label:has-text("Password")');
-
     // Fill in the signup form
     await page.locator('input[name="name"], input[placeholder="Name"]').fill('TestUser123!');
     await page.locator('input[name="email"], input[placeholder="Email"]').fill(generateRandomEmail());
