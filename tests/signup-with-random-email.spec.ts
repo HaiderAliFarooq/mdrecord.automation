@@ -19,12 +19,6 @@ test.describe('Signup', () => {
     await page.locator('input[name="email"], input[placeholder="Email"]').fill(generateRandomEmail());
     await page.locator('input[name="password"], input[placeholder="Password"]').fill('TestPassword123!');
 
-    // If there's a confirm password field
-    const confirmPassword = page.locator('input[name="confirmPassword"], input[placeholder*="Confirm"]');
-    if (await confirmPassword.count()) {
-      await confirmPassword.fill('TestPassword123!');
-    }
-
     // Submit the signup form
     await page.getByRole('button', { name: /sign up|register|create account|submit|Try For Free/i }).click();
 

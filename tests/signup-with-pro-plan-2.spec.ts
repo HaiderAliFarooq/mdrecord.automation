@@ -31,12 +31,6 @@ test.describe('Signup with Pro Plan 2', () => {
     await page.locator('input[name="email"], input[placeholder="Email"]').fill(generateRandomEmail());
     await page.locator('input[name="password"], input[placeholder="Password"]').fill('testpro2');
 
-    // Handle optional confirm password field
-    const confirmPassword = page.locator('input[name="confirmPassword"], input[placeholder*="Confirm"]');
-    if (await confirmPassword.count()) {
-      await confirmPassword.fill('testpro2');
-    }
-
     // Submit the signup form by clicking a common button role/name
     await page.getByRole('button', { name: /sign up|register|create account|submit|Upgrade/i }).click();
 
